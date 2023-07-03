@@ -6,7 +6,7 @@ class PricesController < ApplicationController
         @total_price = 0
         @prices.each do |price|
         @total_price += price.price
-    end
+        end
     end
     
     def new 
@@ -15,9 +15,8 @@ class PricesController < ApplicationController
     
     def create
         @price = Price.new(price_params)
-
         @price.save
-        redirect_to action: index
+        redirect_to action: :index
     end
     
     def show

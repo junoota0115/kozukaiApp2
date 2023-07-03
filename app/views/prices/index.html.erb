@@ -1,2 +1,13 @@
 <h1>index</h1>
+<li><%= link_to 'ログアウト',  destroy_user_session_path, method: :delete, class: "logout" %></li> 
+
 <div>合計金額</div>
+<div>
+    <%=@total_price%>
+</div>
+
+<%= link_to '登録',   new_price_path, method: :get %>
+
+
+
+

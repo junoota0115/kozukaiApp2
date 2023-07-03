@@ -7,6 +7,10 @@ class PricesController < ApplicationController
     end
     
     def create
+        @price = Price.new(
+        user_id: @current_user.id)
+        @price.save
+        redirect_to price
     end
     
     def show

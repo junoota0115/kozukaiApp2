@@ -7,10 +7,10 @@ class PricesController < ApplicationController
     end
     
     def create
-        @price = Price.new(
-        user_id: @current_user.id)
+        @price = Price.new(price_params)
+
         @price.save
-        redirect_to price
+        redirect_to action: index
     end
     
     def show
@@ -23,5 +23,10 @@ class PricesController < ApplicationController
     end
 
     def delete
+    end
+    
+    private
+    def price_params
+        params.require(:price).permit(:price,:content).merge(user_id: current_user.id)
     end
 end
